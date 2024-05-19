@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>knlba</title>
+    <link rel="stylesheet" href="../tailwind.css">
+    <link rel="shortcut icon" href="../images/logo_gold_1.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- header -->
+    <header
+        class="h-[6vh] min-h-fit sm:h-[8vh] md:h-[10vh] w-full bg-gradient-to-r from-red-700 via-stone-800 to-stone-800 px-1 sm:px-10 flex items-center sm:justify-center justify-around fixed z-30">
+        <div id="menuIcon"
+            class="text-stone-300 font-semibold text-sm sm:text-base sm:font-bold md:text-lg inline-block md:hidden mr-6 ml-2 sm:mr-8 cursor-pointer">
+            CLICK</div>
+        <a href="../index.html"><img src="../images/logo_gold_1.png" alt="" class="h-12 sm:h-20 sm:inline hidden"></a>
+        <h1 class="text-stone-300 font-medium text-sm sm:text-base sm:font-bold md:text-xl">KNL BasketBall Academy's
+            Management
+            System</h1>
+    </header>
+    <main class="flex flex-row">
+        <!-- screen navigation bar -->
+        <aside id="burgerNavItemHolder"
+            class="bg-gradient-to-br from-red-900 to-stone-800 h-[100vh] w-[15vw] min-w-[160px] p-2 pl-2 pt-10 sm:pl-4 sm:pt-28 hidden md:flex flex-col text-stone-300 text-sm font-normal md:text-base lg:text-lg sm:font-semibold gap-5 md:sticky md:top-0 fixed top-[6vh] z-20">
+            <a href="../index.html" id="item1" class="hover:text-stone-400 w-fit cursor-pointer">HOME</a>
+            <a href="./users.html" id="item2"
+                class="hover:text-stone-400 w-fit cursor-pointer border-b-2 border-stone-500">ALL USERS</a>
+            <a href="./staffs.html" id="item3" class="hover:text-stone-400 w-fit cursor-pointer">STAFFS</a>
+            <a href="./players.html" id="item4" class="hover:text-stone-400 w-fit cursor-pointer">PLAYERS</a>
+            <a href="./gallery.html" id="item5" class="hover:text-stone-400 w-fit cursor-pointer">GALLERY</a>
+            <a href="./news.html" id="item6" class="hover:text-stone-400 w-fit cursor-pointer">NEWS</a>
+            <a href="./testimonials.html" id="item7" class="hover:text-stone-400 w-fit cursor-pointer">TESTIMONIALS</a>
+
+            <a id="logoutBtn" href="./login.html"
+                class="mt-[20vh] border-b-2 border-b-red-600 w-fit cursor-pointer p-2 font-semibold sm:font-bold animate-pulse text-stone-400">LogOut</a>
+        </aside>
+        <!-- hidden add user form -->
+        <form id="addUserForm" enctype="multipart/form-data"
+            class="bg-stone-200 w-fit justify-center items-center flex-col p-2 sm:p-4 md:p-6 rounded-lg my-0 mx-auto hidden absolute left-[10%] sm:left-[20%] md:left-[30%] lg:left-[40%] top-[20%] z-10">
+            <div class="mb-4">
+                <p id="closeFormX"
+                    class="text-red-800 text-lg font-medium sm:text-2xl sm:font-semibold absolute top-0 right-4 cursor-pointer">
+                    x</p>
+            </div>
+            <input type="text" required autocomplete="true" name="first_name" id="firstName" placeholder="First Name"
+                class="block min-w-[200px] w-[80vw] sm:w-[400px] h-8 text-sm sm:text-base sm:h-10 my-1 sm:my-2 bg-inherit border-2 border-red-600 focus:border-stone-400 outline-none rounded-md sm:rounded-lg p-1">
+            <input type="text" required autocomplete="true" name="last_name" id="lastName" placeholder="Last Name"
+                class="block min-w-[200px] w-[80vw] sm:w-[400px] h-8 text-sm sm:text-base sm:h-10 my-1 sm:my-2 bg-inherit border-2 border-red-600 focus:border-stone-400 outline-none rounded-md sm:rounded-lg p-1">
+            <input type="text" autocomplete="true" name="other_name" id="otherName" placeholder="Other Name"
+                class="block min-w-[200px] w-[80vw] sm:w-[400px] h-8 text-sm sm:text-base sm:h-10 my-1 sm:my-2 bg-inherit border-2 border-red-600 focus:border-stone-400 outline-none rounded-md sm:rounded-lg p-1">
+            <input type="email" required autocomplete="true" name="email" id="email" placeholder="Email"
+                class="block min-w-[200px] w-[80vw] sm:w-[400px] h-8 text-sm sm:text-base sm:h-10 my-1 sm:my-2 bg-inherit border-2 border-red-600 focus:border-stone-400 outline-none rounded-md sm:rounded-lg p-1">
+            <input type="password" name="password" id="password" placeholder="password" class="      min-w-[200px] w-[80vw] sm:w-[400px] h-8 text-sm sm:text-base sm:h-10 my-1 sm:my-2 bg-inherit border-2 border-red-600 focus:border-stone-400 outline-none rounded-md sm:rounded-lg p-1 hidden">
+            <input type="tel" required autocomplete="true" name="phone" id="phone" placeholder="Phone"
+                class="block min-w-[200px] w-[80vw] sm:w-[400px] h-8 text-sm sm:text-base sm:h-10 my-1 sm:my-2 bg-inherit border-2 border-red-600 focus:border-stone-400 outline-none rounded-md sm:rounded-lg p-1">
+            <input type="file" required accept="jpg/png/jpeg" name="image" id="image" placeholder="Image"
+                class="block min-w-[200px] w-[80vw] sm:w-[400px] h-8 text-sm sm:text-base sm:h-10 my-1 sm:my-2">                
+            <button id="submitFormBtn"
+                class="block text-xs font-semibold sm:text-base min-w-[120px] w-[35vw] sm:w-[160px] mt-2 mb-0 sm:my-2 bg-red-800 text-stone-300 rounded-lg p-2 hover:bg-red-700">Create
+                User</button>
+        </form>
+        <!-- deleteconfirmation panel -->
+        <div id="confirmDeletePanel"
+            class="bg-stone-200 w-fit justify-center items-center flex-col p-2 sm:p-4 md:p-6 rounded-lg my-0 mx-auto hidden absolute left-[23%] sm:left-[35%] md:left-[45%] lg:left-[50%] top-[35%] z-10">
+            <h2 class="text-sm font-semibold sm:text-base sm:font-bold mb-2">Confirm Deletion</h2>
+            <div>
+                <button id="cancelDeleteBtn"
+                    class="bg-red-600 text-stone-300 p-2 text-sm font-semibold sm:text-base sm:font-bold rounded-md">Cancel</button>
+                <button id="confirmDeleteBtn"
+                    class="bg-green-600 text-stone-300 p-2 text-sm font-semibold sm:text-base sm:font-bold rounded-md">Confirm</button>
+            </div>
+        </div>
+        <!-- response message panel -->
+        <div id="resMsg"
+            class="bg-green-600 text-stone-300 hidden w-fit justify-center items-center flex-col p-2 sm:p-4 md:p-6 rounded-lg my-0 mx-auto fixed bottom-4 right-4 z-10">
+            <h2 class="text-sm font-semibold sm:text-base sm:font-bold mb-2">User created successfully</h2>
+        </div>
+        <!-- users section -->
+        <section id="users" class="w-[100vw] md:w-[85vw] bg-stone-300 pt-[6vh] sm:pt-[8vh] md:pt-[10vh] min-h-[95vh]">
+            <!-- section header -->
+            <div
+                 class="p-1 sm:p-2 md:p-3 bg-stone-800 text-center text-stone-300 sm:text-base sm:font-semibold md:text-lg md:font-bold font-medium text-sm mb-4 md:mb-6 flex justify-around items-center">
+                <h2></h2>
+                <div class="cursor-pointer animate-pulse transform active:scale-95">
+                    <p id="addUserBtn" class="inline mr-1 sm:mr-3">Add User</p>
+                    <i class="text-lg font-semibold sm:text-2xl sm:font-bold">+</i>
+                </div>
+            </div>
+            <!-- user section main content -->
+            <div id="userMainContent"
+                class="w-full p-1 sm:p-3 flex items-center justify-center gap-[3%] sm:gap-[6%] flex-wrap text-stone-300">
+                <!-- cards -->
+            </div>
+        </section>
+    </main>
+    <footer
+        class="bg-stone-800 p-2 sm:p-3 text-center text-stone-300 sm:text-base sm:font-semibold font-normal text-sm ">
+        KNL Management System 2024
+    </footer>
+    <!-- general js -->
+    <script type="module" src="../script.js"></script>
+    <!-- html template js -->
+    <script type="module" src="../utils/htmlTemplates.js"></script>
+    <!-- user sepecific js -->
+    <script type="module" src="../js/users.js"></script>
+</body>
+
+</html>

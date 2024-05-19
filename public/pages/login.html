@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>knlba</title>
+    <link rel="stylesheet" href="../tailwind.css">
+    <link rel="shortcut icon" href="../images/logo_gold_1.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- header -->
+    <header
+        class="h-[6vh] min-h-fit sm:h-[8vh] md:h-[10vh] w-full bg-gradient-to-r from-red-700 via-stone-800 to-stone-800 px-1 sm:px-10 flex items-center sm:justify-center justify-around fixed z-30">
+        <a href="../index.html"><img src="../images/logo_gold_1.png" alt="" class="h-12 sm:h-20 sm:inline hidden"></a>
+        <h1 class="text-stone-300 font-medium text-sm sm:text-base sm:font-bold md:text-xl">KNL BasketBall Academy's
+            Management
+            System</h1>
+    </header>
+    <main class="bg-stone-300 pt-[30vh] min-h-[95vh] md:min-h-[93.5vh]">
+        <form id="loginForm" class="bg-stone-200 w-fit justify-center items-center flex-col p-2 sm:p-4 md:p-6 rounded-lg my-0 mx-auto">
+            <input type="email" required autocomplete="true" name="email" id="email" placeholder="Email"
+                class="block min-w-[200px] w-[80vw] sm:w-[400px] h-8 text-sm sm:text-base sm:h-10 my-2 sm:my-3 bg-inherit border-2 border-red-600 focus:border-stone-400 outline-none rounded-md sm:rounded-lg p-1">
+            <input type="password" required name="password" id="password" placeholder="Password"
+                class="block min-w-[200px] w-[80vw] sm:w-[400px] h-8 text-sm sm:text-base sm:h-10 my-2 sm:my-3 bg-inherit border-2 border-red-600 focus:border-stone-400 outline-none rounded-md sm:rounded-lg p-1">
+
+            <button id="submitFormBtn"
+                class="block text-xs font-semibold sm:text-base min-w-[120px] w-[35vw] sm:w-[160px] mt-2 mb-0 sm:my-2 mx-auto bg-red-800 text-stone-300 rounded-lg p-2 hover:bg-red-700">Sign In</button>
+        </form>
+    </main>
+    <footer
+        class="bg-stone-800 p-2 sm:p-3 text-center text-stone-300 sm:text-base sm:font-semibold font-normal text-sm ">
+        KNL Management System 2024
+    </footer>
+    <!-- login sepecific js -->
+    <script type="module" src="../js/login.js"></script>
+</body>
+
+</html>

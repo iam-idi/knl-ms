@@ -1,0 +1,21 @@
+{
+  "name": "knl-ms",
+  "version": "1.0.0",
+  "description": "knl management system",
+  "main": "index.js",
+  "devDependencies": {
+    "autoprefixer": "^10.4.18",
+    "postcss": "^8.4.37",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.1"
+  },
+  "scripts": {
+    "build": "postcss src/tailwind.css -o public/tailwind.css --watch"
+  },
+  "keywords": [
+    "knl",
+    "management-system"
+  ],
+  "author": "idi",
+  "license": "ISC"
+}

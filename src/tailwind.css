@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+}
