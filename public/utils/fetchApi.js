@@ -9,13 +9,15 @@ const fetchAPIFunc = async(endpoint, methodType, payload, contentType) => {
                     method: methodType,
                     headers: {
                         'Content-Type': 'application/json',
+                        // 'Authorization': localStorage.getItem('jwt')
                     },
                 });
             } else {
                 result = await fetch(`${baseUrl}/${endpoint}`, {
                     method: methodType,
                     headers: {
-                        'Content-Type': 'multipart/form-data', boundary :'---webkitThisIsTheBoundary---'
+                        'Content-Type': 'multipart/form-data', boundary:'--webkitThisIsTheBoundary--',
+                        // 'Authorization': localStorage.getItem('jwt')
                     },
                     body: JSON.stringify(payload),
                 });

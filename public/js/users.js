@@ -192,9 +192,6 @@ const createOrUpdateUser = async(payload, createOrUpdate) => {
     }
 }
 
-// response message
-responseMsgFunc('User Page', true);
-
 // event listeners
 addUserBtn.addEventListener('click', (event) => { openCloseUserForm(event) });
 closeFormX.addEventListener('click', (event) => { openCloseUserForm(event) });
