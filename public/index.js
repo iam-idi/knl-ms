@@ -2,24 +2,26 @@
 import fetchAPIFunc from './utils/fetchApi.js';
 import responseMsgFunc from './utils/responseMsg.js';
 const greeting = document.querySelector("#greeting");
-const admins = document.querySelector("#admins");
-const gallery = document.querySelector("#gallery");
-const staffs = document.querySelector("#staffs");
-const players = document.querySelector("#players");
-const news = document.querySelector("#news");
-const testimonials = document.querySelector("#testimonials");
+const admins = document.querySelector("#admins p");
+const gallery = document.querySelector("#gallery p");
+const staffs = document.querySelector("#staffs p");
+const players = document.querySelector("#players p");
+const news = document.querySelector("#news p");
+const testimonials = document.querySelector("#testimonials p");
 
 if(!localStorage.getItem('jwt')){
     location.assign('./pages/login.html')
 }
 
 let userName = localStorage.getItem('userName');
-greeting.innerHTML = `Hello, ${(userName ? userName : "Anon")}`;
+greeting.innerHTML = `Hello, ${(userName = true ? userName.charAt(0).toUpperCase() + userName.slice(1) : "Anon")}`;
+
 const getUsers = async() => {
     try {
         let res = await fetchAPIFunc('users', 'GET');
         let data = await res.json();
         admins.innerHTML = data.data.length;
+        console.log(data)
     } catch (error) {
         responseMsgFunc(error.message, false);
     }
@@ -32,7 +34,7 @@ const getstaffsPlayers = async() => {
         let noOfPlayers = 0;
         let res = await fetchAPIFunc('teams', 'GET');
         let data = await res.json();
-        data.forEach(elem => {
+        data.data.forEach(elem => {
             if(elem.role == 'staff'){
                 noOfStaffs++
             } else{

@@ -13,12 +13,14 @@ const fetchAPIFunc = async(endpoint, methodType, payload, contentType) => {
                     },
                 });
             } else {
+                // payload.email = "flimzyzamani@gmail.com"
+                console.log("from fetch func: " + JSON.stringify(payload))
                 result = await fetch(`${baseUrl}/${endpoint}`, {
                     method: methodType,
-                    headers: {
-                        'Content-Type': 'multipart/form-data', boundary:'--webkitThisIsTheBoundary--',
-                        // 'Authorization': localStorage.getItem('jwt')
-                    },
+                    // headers: {
+                    //     'Content-Type': 'multipart/form-data'
+                    // //     // 'Authorization': localStorage.getItem('jwt')
+                    // },
                     body: JSON.stringify(payload),
                 });
             }

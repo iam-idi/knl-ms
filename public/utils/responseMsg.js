@@ -15,7 +15,7 @@ const responseMsgFunc = (response, success) => {
         resMsg.classList.remove('flex');
         resMsg.classList.remove('bg-red-600');
         resMsg.classList.add('bg-green-600');
-    }, 4000);
+    }, 5000);
 }
 
 export default responseMsgFunc;

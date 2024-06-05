@@ -22,6 +22,7 @@ const image = document.getElementById('image');
 
 let paswordFieldHidden;
 let userId;
+let formData;
 
 // add event listeners to edit and delete btns
 const addEventToEditDeleteUserBtnFunc = () => {
@@ -33,7 +34,7 @@ const addEventToEditDeleteUserBtnFunc = () => {
 
         editBtn.forEach(btn => {
         btn.addEventListener('click', (event) => {
-            userId = e.target.parentElement.id;
+            userId = event.target.parentElement.id;
             let formInputArr = [first_name, last_name, phone, email, image];
             formInputArr.forEach(elem => {
                 elem.removeAttribute('required');
@@ -43,8 +44,9 @@ const addEventToEditDeleteUserBtnFunc = () => {
     });
 
     deleteBtn.forEach( btn => {
-        btn.addEventListener('click', (e) => {
-            userId = e.target.parentElement.id;
+        btn.addEventListener('click', (event) => {
+            userId = event.target.parentElement.id;
+            console.log("userId:" + event.target.parentElement.id)
             confirmDeletePanel.classList.remove('hidden')
             confirmDeletePanel.classList.add('flex')
             usersSection.classList.add('blur-sm');
@@ -143,13 +145,17 @@ const submitAddOrEditUserForm = async(e) => {
 
     // removing empty inputs
     let payload = {first_name, last_name, other_name, phone, email, password, image};
-    console.log(payload)
     let payloadArr = Object.entries(payload);
+    formData = new FormData();
     payloadArr.forEach((elem) => {
         if(elem[1] == ''){
             delete payload[elem[0]];
+        } else {
+            console.log(elem[0], elem[1])
+            formData.append(elem[0], elem[1]);
         }
     })
+    console.log("formData: " + JSON.stringify(formData.getAll()))
 
     // checking if to create or update user
     if(Object.values(payload).length > 0){
@@ -171,21 +177,24 @@ const submitAddOrEditUserForm = async(e) => {
 
 // user create or update function
 const createOrUpdateUser = async(payload, createOrUpdate) => {
-    console.log(userId)
-    console.log(payload)
+    console.log("payload: " + JSON.stringify(payload))
+    console.log("formData: " + JSON.stringify(formData))
     try {
         if(createOrUpdate == 'create'){
-            let res = await fetchAPIFunc('auth/register', 'POST', payload);
-            if(!res.ok){
-                throw new error('Something went wrong')
+            let res = await fetchAPIFunc('auth/register', 'POST', formData);
+            if(!res || !res.status){
+                throw new Error('Something went wrong');
             }
-            responseMsgFunc('User Created Successfully', true);
+            let data = await res.json();
+            console.log(data)
+            responseMsgFunc(data.message, data.success);
         } else {
-            let res = await fetchAPIFunc(`/users/${userId}`, 'PATCH', payload);
-            if(!res.ok){
-                throw new error('Something went wrong')
+            let res = await fetchAPIFunc(`/users/${userId}`, 'PATCH', formData);
+            if(!res || !res.status){
+                throw new Error('Something went wrong');
             }
-            responseMsgFunc('User Updated Successfully', true);
+            let data = await res.json();
+            responseMsgFunc(data.message, data.success);
         }
     } catch (error) {
        responseMsgFunc(error.message, false)

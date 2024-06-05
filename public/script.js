@@ -21,7 +21,9 @@ const openCloseNavBar = (e) => {
 // log out func
 const logOutFunc = () => {
     // window.history.forward(); 
-    console.log('hlogged out')
+    location.assign('./pages/login.html');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('jwt');
 }
 
 // event listeners

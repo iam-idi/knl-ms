@@ -7,7 +7,7 @@ const templates = {
 
             <div
                 class="editBtn text-right text-sm font-semibold sm:text-base sm:font-bold cursor-pointer transform active:scale-95">
-                EDIT</div>
+                <i class="fa-solid fa-pen-to-square text-blue-500"></i></div>
             <div class="flex items-center justify-center gap-2 md:gap-3">
                 <img src="${image}" alt="" class="w-16 h-16 md:w-20 md:h-20 rounded-full">
                 <div>
@@ -19,7 +19,7 @@ const templates = {
             </div>
             <div
                 class="deleteBtn text-right text-sm font-semibold sm:text-base sm:font-bold cursor-pointer transform active:scale-95">
-                DELETE
+                <i class="fa-solid fa-trash text-red-500"></i>
                 </div>
 
         </div>`
