@@ -17,5 +17,8 @@
     "management-system"
   ],
   "author": "idi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2"
+  }
 }
